@@ -48,6 +48,9 @@ fun LemonadeApplication(
         .wrapContentSize(Alignment.Center)
 ) {
     var result by remember { mutableStateOf(1) }
+    var clickTimes by remember { mutableStateOf(0) }
+    var clickLemonade: String
+
     when (result) {
         1 -> {
             Column(
@@ -83,6 +86,11 @@ fun LemonadeApplication(
                     modifier = Modifier
                         .clickable {
                             result++
+                            clickLemonade = if (clickTimes == 2) ({
+                                clickTimes = (1..4).random()
+                            }).toString() else ({
+                                clickTimes = result
+                            }).toString()
                         }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
