@@ -86,11 +86,6 @@ fun LemonadeApplication(
                     modifier = Modifier
                         .clickable {
                             result++
-                            clickLemonade = if (clickTimes == 2) ({
-                                clickTimes = (1..4).random()
-                            }).toString() else ({
-                                clickTimes = result
-                            }).toString()
                         }
                 )
                 Spacer(modifier = Modifier.height(16.dp))
